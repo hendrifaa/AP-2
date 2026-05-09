@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+class ContohAkses {
+    private:
+        int privateVar;
+
+    protected:
+        int protectedVar;
+
+    public:
+        int publicVar;
+
+        //Constructor
+ContohAkses(){
+    privateVar = 1;
+    protectedVar = 2;
+    publicVar = 3;
+}
+     
+    void tampilkanSemua(){
+        cout << "Akses dari dalam class : " << endl;
+        cout << privateVar << endl;
+        cout << protectedVar << endl;
+        cout << publicVar << endl;
+    }
+};
+
+//  Inheritance (pewarisan), class turunan
+class Turunan : public ContohAkses{
+    public :
+    void aksesProtected(){
+        // cout << privateVar << endl;
+        cout << protectedVar << endl;
+        cout << publicVar << endl;
+    }
+};
+
+int main(){
+    system ("CLS");
+    ContohAkses obj;
+    obj.tampilkanSemua();
+
+    cout << "\n Akses dari luar class : " << endl;
+        // cout << obj.privateVar << endl; // error
+        // cout << obj.protectedVar << endl; // error
+        cout << obj.publicVar << endl;
+
+        cout << "\nAkses dari kelas Turunan : " << endl;
+        Turunan tur;
+        tur.aksesProtected();
+
+}
